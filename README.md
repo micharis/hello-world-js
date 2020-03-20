@@ -67,3 +67,28 @@ Material resources and topics that need to be studied by junior devops engineer:
 - Communication between services is becoming increasingly complex.
 - Debugging problems will become more difficult.
 - Costs coulbe be expensive for microservices implementation.
+
+## Write a shell script to find the biggest 5 files from a folder and copy them to ~/backup/{timestamp}/extension/ folder. Eg if somebigfile.jpg gets copied to backup/201234234/jpg/somebigfile.jpg
+
+Scripts:
+```bash
+#!/bin/bash
+
+SRCDIR=$1
+DESTDIR="/tmp/$(date +%Y%m%d)/extension"
+
+# Ensure directory exist
+[ ! -d "$DESTDIR" ] && mkdir -p "$DESTDIR"
+
+# Find and copy 5 largest file 
+cp -v $(find $SRCDIR -type f -exec du -Sh {} + | sort -rh | head -n 1 | awk '{print $2}') $DESTDIR
+```
+Usage (script name is copy.sh) :
+```
+$ chmod +x copy.sh
+$ ./copy.sh <Source Folder>
+```
+
+## hello.js deployment
+List of source code :
+1. 
