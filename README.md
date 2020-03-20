@@ -92,15 +92,16 @@ $ ./copy.sh <Source Folder>
 ## hello.js deployment
 
 List of source codes.
-1. [hello.js]()
-2. [Dockerfile]()
-3. [container-hello-world.yaml]()
-4. [service.yaml]()
+1. hello.js
+2. Dockerfile
+3. hello-world-js-kube/container-hello-world.yaml
+4. hello-world-js-kube/service.yaml
 
 **Step by step to deploy the app to Kubernetes Cluster (I assume the cluster has deployed).**
 Pull source code repository from Github.
 ```
 $ git clone https://github.com/micharis/hello-world-js.git
+$ cd hello-world-js
 ```
 
 Build and push docker image (replace *micharis* with your own username).
